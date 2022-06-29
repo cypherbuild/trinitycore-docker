@@ -3,7 +3,7 @@
 set -euo pipefail
 set -x
 
-TC_RELEASES_URL="https://github.com/TrinityCore/TrinityCore/releases"
+TC_RELEASES_URL="https://github.com/cypherbuild/TrinityCore/releases"
 
 # Extract the DB Version from the source code
 DB_VERSION=$(grep -o -E '(TDB_full[^"]+)' /hostfs/tc-server/source/revision_data.h.in.cmake)
