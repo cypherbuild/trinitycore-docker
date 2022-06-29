@@ -8,7 +8,7 @@ set -x
 # grab the first or latest entry. Using jq, grab all the tags with "TDB335" and
 # return the first one (latest).
 LATEST_RELEASE_TAG=$( \
-  curl --silent "https://api.github.com/repos/cypherbuild/TrinityCore/releases" \
+  curl --silent "https://api.github.com/repos/TrinityCore/TrinityCore/releases" \
     | jq -r '[.[].tag_name | select(test("TDB335"))] | first' \
 )
 
