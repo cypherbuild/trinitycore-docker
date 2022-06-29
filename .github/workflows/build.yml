@@ -28,7 +28,7 @@ jobs:
       - name: Build root action container
         run: ./action pwd
 
-      - name: Get TrinityCore source
+      - name: Get cb/TrinityCore source
         run: ./action tc-fetch
 
       # GHA's cache action does not run as sudo, but we're writing files inside
@@ -40,7 +40,7 @@ jobs:
           sudo chmod -R a+rwx .
           sudo chown -R $(whoami):$(id -ng) .
 
-      - name: Cache / Retrieve TrinityCore Bins
+      - name: Cache / Retrieve cb/TrinityCore Bins
         uses: actions/cache@v2
         id: trinitycore-bin-cache
         env:
@@ -49,7 +49,7 @@ jobs:
           path: ./containerfs/tc-server/dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./containerfs/tc-server/source/.git/HEAD') }}
 
-      - name: Build TrinityCore
+      - name: Build cb/TrinityCore
         if: steps.trinitycore-bin-cache.outputs.cache-hit != 'true'
         run: ./action tc-build
 
